@@ -46,7 +46,7 @@ const Login = () => {
 
         // ✅ Correct redirect (inside React app)
         setTimeout(() => {
-          navigate("/dashboard");
+         navigate("/home");
         }, 800);
 
       } else {

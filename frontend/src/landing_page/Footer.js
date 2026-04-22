@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer style={{backgroundColor: "#f0f0f0"}}>
-      <div className="container p-5 mt-5 border-top">
+      <div className="container p-5  border-top">
       <div className="row">
         <div className="col">
           <img
@@ -13,14 +13,14 @@ function Footer() {
           />
           <p className='mt-3'> &copy; 2010 - 2025, Zerodha Broking Ltd. All rights reserved.</p>
           <div className='p-1 mt-2'>
-            <i class="fa fa-facebook-official p-2" aria-hidden="true"></i>
-          <i class="fa fa-youtube-play p-2" aria-hidden="true"></i>
-          <i class="fa fa-instagram p-2" aria-hidden="true"></i>
-          <i class="fa fa-linkedin p-2" aria-hidden="true"></i>
+            <i className="fa fa-facebook-official p-2" aria-hidden="true"></i>
+          <i className="fa fa-youtube-play p-2" aria-hidden="true"></i>
+          <i className="fa fa-instagram p-2" aria-hidden="true"></i>
+          <i className="fa fa-linkedin p-2" aria-hidden="true"></i>
           <br/>
-          <i class="fa fa-twitter-square p-2" aria-hidden="true"></i>
-          <i class="fa fa-whatsapp p-2" aria-hidden="true"></i>
-          <i class="fa fa-telegram p-2" aria-hidden="true"></i>
+          <i className="fa fa-twitter-square p-2" aria-hidden="true"></i>
+          <i className="fa fa-whatsapp p-2" aria-hidden="true"></i>
+          <i className="fa fa-telegram p-2" aria-hidden="true"></i>
           </div>
         </div>
         <div className="col">

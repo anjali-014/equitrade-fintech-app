@@ -218,20 +218,12 @@ app.get("/allPositions", async(req, res) => {
    res.json(allPositions);
 });
 
-app.post("/newOrder", async(req,res) =>{
-    let newOrder = await OrdersModel.create({
-        name: req.body.name,
-        qty: req.body.qty,
-        price: req.body.price,
-        mode:  req.body.mode,
-    });
-    //newOrder.save();
-   res.send("Order saved");
-});
+
 
 app.listen(3002, () =>{
     console.log("App started!");
-    mongoose.connect(uri);
+    console.log("ENV CHECK:", process.env.MONGO_URI);
+    mongoose.connect(process.env.MONGO_URI);
     console.log("DBconnected!");
   
 });

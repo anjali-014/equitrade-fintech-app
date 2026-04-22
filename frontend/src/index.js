@@ -6,10 +6,12 @@ import "./index.css";
 
 import Layout from "./Layout";
 
+import Dashboard from "./dashboard/components/Dashboard";
+
 import HomePage from "./landing_page/home/HomePage";
 import Signup from "./landing_page/signup/Signup";
 import Login from "./pages/Login";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import NotFound from "./landing_page/NotFound";
 import AboutPage from "./landing_page/about/AboutPage";
 import ProductPage from "./landing_page/products/ProductsPage";
@@ -24,19 +26,22 @@ root.render(
   <CookiesProvider>
     <BrowserRouter>
       <Routes>
-        {/* Layout route wraps all pages */}
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="products" element={<ProductPage />} />
-          <Route path="pricing" element={<PricingPage />} />
-          <Route path="support" element={<SupportPage />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
-          <Route path="home" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+
+  {/* Landing pages WITH layout */}
+  <Route path="/" element={<Layout />}>
+    <Route index element={<HomePage />} />
+    <Route path="about" element={<AboutPage />} />
+    <Route path="products" element={<ProductPage />} />
+    <Route path="pricing" element={<PricingPage />} />
+    <Route path="support" element={<SupportPage />} />
+    <Route path="signup" element={<Signup />} />
+    <Route path="login" element={<Login />} />
+  </Route>
+
+  {/* 🚀 Dashboard WITHOUT layout */}
+  <Route path="/home/*" element={<Dashboard />} />
+
+</Routes>
     </BrowserRouter>
   </CookiesProvider>
 );

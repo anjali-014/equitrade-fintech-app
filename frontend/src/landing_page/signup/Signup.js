@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState({
     email: "",
-    password: "",
     username: "",
+    password: "",
   });
-  const { email, password, username } = inputValue;
+
+  const { email, username, password } = inputValue;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -20,88 +24,159 @@ const Signup = () => {
   };
 
   const handleError = (err) =>
-    toast.error(err, {
-      position: "bottom-left",
-    });
-  const handleSuccess = (msg) =>
-    toast.success(msg, {
-      position: "bottom-right",
-    });
+    toast.error(err, { position: "bottom-left" });
 
+  const handleSuccess = (msg) =>
+    toast.success(msg, { position: "bottom-right" });
+
+  // ✅ ONLY ONE FUNCTION CALL
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const { data } = await axios.post(
-        "http://localhost:3002/signup",
-        {
-          ...inputValue,
-        },
-        { withCredentials: true }
+      const res = await axios.post(
+        "http://localhost:3002/api/auth/signup",
+        { email, username, password }
       );
-      const { success, message } = data;
-      if (success) {
-        handleSuccess(message);
+
+      console.log("RESPONSE:", res.data);
+
+      if (res.data.success === true) {
+        handleSuccess(res.data.message);
+
         setTimeout(() => {
           navigate("/login");
         }, 1000);
       } else {
-        handleError(message);
+        handleError(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      handleError("Something went wrong");
     }
+
+    // clear inputs
     setInputValue({
-      ...inputValue,
       email: "",
-      password: "",
       username: "",
+      password: "",
     });
   };
 
-  return ( 
-   <div style={{display: 'flex', justifyContent: ' center'}}>
-     <div></div>
+  // return (
+  //   <div style={{ display: "flex", justifyContent: "center" }}>
+  //     <div className="form_container">
+  //       <h2>Signup Account</h2>
+
+  //       {/* ❌ REMOVED onSubmit TO AVOID DOUBLE CALL */}
+  //       <form>
+  //         <div>
+  //           <label>Email</label>
+  //           <input
+  //             type="email"
+  //             name="email"
+  //             value={email}
+  //             placeholder="Enter your email"
+  //             onChange={handleOnChange}
+  //             required
+  //           />
+  //         </div>
+
+  //         <div>
+  //           <label>Username</label>
+  //           <input
+  //             type="text"
+  //             name="username"
+  //             value={username}
+  //             placeholder="Enter your username"
+  //             onChange={handleOnChange}
+  //             required
+  //           />
+  //         </div>
+
+  //         <div>
+  //           <label>Password</label>
+  //           <input
+  //             type="password"
+  //             name="password"
+  //             value={password}
+  //             placeholder="Enter your password"
+  //             onChange={handleOnChange}
+  //             required
+  //           />
+  //         </div>
+
+  //         {/* ✅ FIXED BUTTON */}
+  //         <button type="button" onClick={handleSubmit}>
+  //           Submit
+  //         </button>
+
+  //         <span>
+  //           Already have an account?{" "}
+  //           <Link to="/login">Login</Link>
+  //         </span>
+  //       </form>
+
+  //       <ToastContainer />
+  //     </div>
+  //   </div>
+
+  return (
+  <div className="page-wrapper">
     <div className="form_container">
       <h2>Signup Account</h2>
-      <form onSubmit={handleSubmit}>
+
+      <form>
         <div>
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
           <input
             type="email"
             name="email"
             value={email}
             placeholder="Enter your email"
             onChange={handleOnChange}
+            required
           />
         </div>
+
         <div>
-          <label htmlFor="email">Username</label>
+          <label>Username</label>
           <input
             type="text"
             name="username"
             value={username}
             placeholder="Enter your username"
             onChange={handleOnChange}
+            required
           />
         </div>
+
         <div>
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
           <input
             type="password"
             name="password"
             value={password}
             placeholder="Enter your password"
             onChange={handleOnChange}
+            required
           />
         </div>
-        <button type="submit">Submit</button>
+
+        <button type="button" onClick={handleSubmit}>
+          Submit
+        </button>
+
         <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
         </span>
       </form>
+
       <ToastContainer />
     </div>
-   </div>
+  </div>
+
   );
 };
 

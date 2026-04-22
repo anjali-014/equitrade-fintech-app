@@ -4,6 +4,10 @@ const router = express.Router();
 // Import the controller
 const { Signup, Login } = require('../Controllers/AuthController');
 
+const { buyStock } = require("../Controllers/AuthController"); // or TradeController
+
+router.post("/buy", buyStock);
+
 // Signup route
 router.post('/signup', Signup);
 

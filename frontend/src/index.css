@@ -158,6 +158,23 @@ span a {
   background-color: rgba(0, 212, 255, 1);
 }
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
+.page-wrapper {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (max-width: 1200px){
   .home_page{

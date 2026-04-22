@@ -21,7 +21,7 @@ router.get("/verify", (req, res) => {
   if (!token) return res.json({ status: false });
 
   try {
-    const secret = process.env.JWT_SECRET || "devSecret";
+    const secret = process.env.JWT_SECRET;
     const decoded = jwt.verify(token, secret);
     res.json({ status: true, user: decoded.email });
   } catch (err) {

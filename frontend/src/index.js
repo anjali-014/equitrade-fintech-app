@@ -40,6 +40,7 @@ root.render(
 
   {/* 🚀 Dashboard WITHOUT layout */}
   <Route path="/home/*" element={<Dashboard />} />
+  
 
 </Routes>
     </BrowserRouter>

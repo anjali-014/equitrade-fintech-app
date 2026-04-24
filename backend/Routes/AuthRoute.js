@@ -1,3 +1,7 @@
+const { userVerification } = require("../Middlewares/AuthMiddleware");
+
+const requireAuth = require("../Middlewares/requireAuth");
+
 const express = require('express');
 const router = express.Router();
 
@@ -6,7 +10,11 @@ const { Signup, Login } = require('../Controllers/AuthController');
 
 const { buyStock } = require("../Controllers/AuthController"); // or TradeController
 
-router.post("/buy", buyStock);
+// router.post("/buy", buyStock);
+
+router.post("/buy", requireAuth, buyStock);
+
+router.get("/verify", userVerification);
 
 // Signup route
 router.post('/signup', Signup);
@@ -14,20 +22,20 @@ router.post('/signup', Signup);
 // Login route
 router.post('/login', Login);
 
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
-router.get("/verify", (req, res) => {
-  const token = req.cookies.token; // get token from cookies
-  if (!token) return res.json({ status: false });
+// router.get("/verify", (req, res) => {
+//   const token = req.cookies.token; // get token from cookies
+//   if (!token) return res.json({ status: false });
 
-  try {
-    const secret = process.env.JWT_SECRET;
-    const decoded = jwt.verify(token, secret);
-    res.json({ status: true, user: decoded.email });
-  } catch (err) {
-    res.json({ status: false });
-  }
-});
+//   try {
+//     const secret = process.env.JWT_SECRET;
+//     const decoded = jwt.verify(token, secret);
+//     res.json({ status: true, user: decoded.email });
+//   } catch (err) {
+//     res.json({ status: false });
+//   }
+// });
 
 
 module.exports = router;

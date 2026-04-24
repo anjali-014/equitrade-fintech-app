@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const requireAuth = require("./Middlewares/requireAuth");
+
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
@@ -30,16 +32,26 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 
 // ✅ APIs
-app.get("/allHoldings", async (req, res) => {
-  const allHoldings = await HoldingsModel.find({});
+// app.get("/allHoldings", async (req, res) => {
+//   const allHoldings = await HoldingsModel.find({});
+//   res.json(allHoldings);
+// });
+
+// app.get("/allPositions", async (req, res) => {
+//   const allPositions = await PositionsModel.find({});
+//   res.json(allPositions);
+// });
+
+
+app.get("/allHoldings", requireAuth, async (req, res) => {
+  let allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);
 });
 
-app.get("/allPositions", async (req, res) => {
-  const allPositions = await PositionsModel.find({});
+app.get("/allPositions", requireAuth, async (req, res) => {
+  let allPositions = await PositionsModel.find({});
   res.json(allPositions);
 });
-
 
 // ✅ PROPER DB CONNECTION + SERVER START
 const startServer = async () => {

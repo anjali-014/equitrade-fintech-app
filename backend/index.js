@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const uri = process.env.MONGO_URI;
+
 const requireAuth = require("./Middlewares/requireAuth");
 
 const { HoldingsModel } = require("./model/HoldingsModel");
@@ -44,19 +46,20 @@ app.use("/api/auth", authRoute);
 
 
 app.get("/allHoldings", requireAuth, async (req, res) => {
-  let allHoldings = await HoldingsModel.find({});
+  // let allHoldings = await HoldingsModel.find({});
+  let allHoldings = await HoldingsModel.find({ userId: req.user.id });
   res.json(allHoldings);
 });
 
 app.get("/allPositions", requireAuth, async (req, res) => {
-  let allPositions = await PositionsModel.find({});
+  let allPositions = await PositionsModel.find({ userId: req.user.id });
   res.json(allPositions);
 });
 
 // ✅ PROPER DB CONNECTION + SERVER START
 const startServer = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+   await mongoose.connect(uri); 
     console.log("DB Connected ✅");
 
     app.listen(PORT, () => {

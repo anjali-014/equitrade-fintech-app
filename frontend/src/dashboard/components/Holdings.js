@@ -135,12 +135,14 @@ const Holdings = () => {
   // }, []);
 
 
-  useEffect(() => {
+ useEffect(() => {
   API.get("/allHoldings")
     .then((res) => {
       setAllHoldings(res.data);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error("Failed to fetch holdings:", err);
+    });
 }, []);
 
   // 🔥 CALCULATIONS (NEW)

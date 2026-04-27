@@ -17,16 +17,15 @@ const Positions = () => {
   //   });
   // }, []);
 
-
-  useEffect(() => {
+useEffect(() => {
   API.get("/allPositions")
     .then((res) => {
-      console.log(res.data);
       setAllPositions(res.data);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error("Failed to fetch positions:", err);
+    });
 }, []);
-
   return (
     <>
       <h3 className="title">Positions ({allPositions.length})</h3>

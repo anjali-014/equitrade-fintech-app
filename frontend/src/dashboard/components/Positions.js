@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 
-import axios from 'axios';
+// import axios from 'axios';
+
+import API from "../../api/axios";
 
 //import { positions } from "../data/data";
 
@@ -8,13 +10,22 @@ import axios from 'axios';
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
+  // useEffect(() => {
+  //   axios.get("/allPositions").then((res) =>{
+  //     console.log(res.data);
+  //     setAllPositions(res.data);
+  //   });
+  // }, []);
+
+
   useEffect(() => {
-    axios.get("http://localhost:3002/allPositions").then((res) =>{
+  API.get("/allPositions")
+    .then((res) => {
       console.log(res.data);
       setAllPositions(res.data);
-    });
-  }, []);
-
+    })
+    .catch((err) => console.error(err));
+}, []);
 
   return (
     <>

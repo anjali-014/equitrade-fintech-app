@@ -33,16 +33,7 @@ app.use(cookieParser());
 // ✅ Routes
 app.use("/api/auth", authRoute);
 
-// ✅ APIs
-// app.get("/allHoldings", async (req, res) => {
-//   const allHoldings = await HoldingsModel.find({});
-//   res.json(allHoldings);
-// });
 
-// app.get("/allPositions", async (req, res) => {
-//   const allPositions = await PositionsModel.find({});
-//   res.json(allPositions);
-// });
 
 
 app.get("/allHoldings", requireAuth, async (req, res) => {

@@ -17,6 +17,8 @@ const Positions = () => {
   //   });
   // }, []);
 
+ 
+
 useEffect(() => {
   API.get("/allPositions")
     .then((res) => {

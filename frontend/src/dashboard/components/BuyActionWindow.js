@@ -11,25 +11,48 @@ const BuyActionWindow = ({ uid }) => {
   // ✅ FIX: get function from context
   const { closeBuyWindow } = useContext(GeneralContext);
 
+  // const handleBuyClick = async () => {
+  //   try {
+  //     await axios.post("http://localhost:3002/api/auth/buy", {
+  //       name: uid,
+  //       qty: Number(stockQuantity),
+  //       price: Number(stockPrice),
+  //       mode: "BUY",
+  //     });
+
+  //     alert("Stock Bought!");
+
+  //    window.location.reload();
+
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+
+  //   closeBuyWindow(); // ✅ FIX
+  // };
+
+
+
   const handleBuyClick = async () => {
-    try {
-      await axios.post("http://localhost:3002/api/auth/buy", {
-        name: uid,
-        qty: Number(stockQuantity),
-        price: Number(stockPrice),
-        mode: "BUY",
-      });
+  try {
+    await API.post("/api/auth/buy", {
+      name: uid,
+      qty: Number(stockQuantity),
+      price: Number(stockPrice),
+      mode: "BUY",
+    });
 
-      alert("Stock Bought!");
+    alert("Stock Bought!");
 
-     window.location.reload();
+    window.location.reload();
 
-    } catch (err) {
-      console.error(err);
-    }
+  } catch (err) {
+    console.error(err);
+  }
 
-    closeBuyWindow(); // ✅ FIX
-  };
+  closeBuyWindow();
+};
+
 
   const handleCancelClick = () => {
     closeBuyWindow(); // ✅ FIX

@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -27,7 +27,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(cookieParser());
 
 // ✅ Routes

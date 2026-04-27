@@ -171,19 +171,27 @@ module.exports.buyStock = async (req, res) => {
     let { name, qty, price } = req.body;
 
     name = name.trim().toUpperCase();
-    console.log("BUY HIT:", name, qty, price);
-
     qty = Number(qty);
     price = Number(price);
 
+    const userId = req.user.id; // 🔥 IMPORTANT
+
+    console.log("BUY HIT:", name, qty, price, userId);
+
+    // ✅ Save Order (with userId)
     await OrdersModel.create({
       name,
       qty,
       price,
       mode: "BUY",
+      userId
     });
 
-    const existing = await HoldingsModel.findOne({ name });
+    // ✅ Find holding ONLY for this user
+    const existing = await HoldingsModel.findOne({
+      name,
+      userId
+    });
 
     if (existing) {
       const totalQty = existing.qty + qty;
@@ -196,6 +204,7 @@ module.exports.buyStock = async (req, res) => {
 
       await existing.save();
     } else {
+      // ✅ Create new holding for this user
       await HoldingsModel.create({
         name,
         qty,
@@ -203,6 +212,7 @@ module.exports.buyStock = async (req, res) => {
         price,
         net: "0",
         day: "0",
+        userId
       });
     }
 

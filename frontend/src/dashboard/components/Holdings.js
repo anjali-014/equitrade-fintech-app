@@ -116,6 +116,7 @@
 
 
 
+import API from "../../api/axios";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -124,13 +125,23 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
+  // useEffect(() => {
+  //   API.get("/allHoldings")
+  //   axios
+  //     .get("http://localhost:3002/allHoldings", { withCredentials: true }) // 🔐 important
+  //     .then((res) => {
+  //       setAllHoldings(res.data);
+  //     });
+  // }, []);
+
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3002/allHoldings", { withCredentials: true }) // 🔐 important
-      .then((res) => {
-        setAllHoldings(res.data);
-      });
-  }, []);
+  API.get("/allHoldings")
+    .then((res) => {
+      setAllHoldings(res.data);
+    })
+    .catch((err) => console.error(err));
+}, []);
 
   // 🔥 CALCULATIONS (NEW)
   const totalInvestment = allHoldings.reduce(

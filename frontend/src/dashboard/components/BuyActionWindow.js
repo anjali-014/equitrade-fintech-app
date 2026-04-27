@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
 
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
@@ -44,7 +47,7 @@ const BuyActionWindow = ({ uid }) => {
 
     alert("Stock Bought!");
 
-    window.location.reload();
+    navigate("/home/holdings");
 
   } catch (err) {
     console.error(err);

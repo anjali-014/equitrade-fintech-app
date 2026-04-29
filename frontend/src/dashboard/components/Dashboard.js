@@ -12,6 +12,7 @@ import { GeneralContextProvider } from "./GeneralContext";
 
 import "../dashboard.css";
 
+//dashboard
 const Dashboard = () => {
   return (
     <div className="dashboard"> {/* ✅ FIXED WRAPPER */}

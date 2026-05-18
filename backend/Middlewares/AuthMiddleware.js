@@ -21,7 +21,7 @@
 
 
 
-const User = require("../model/UserModel"); // ⚠️ check path: model vs Models
+const User = require("../Models/UserModel"); // ⚠️ check path: model vs Models
 const jwt = require("jsonwebtoken");
 
 module.exports.userVerification = async (req, res) => {

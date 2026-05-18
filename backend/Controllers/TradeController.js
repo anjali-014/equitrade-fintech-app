@@ -1,5 +1,5 @@
-const { HoldingsModel } = require("../model/HoldingsModel");
-const { OrdersModel } = require("../model/OrdersModel");
+const { HoldingsModel } = require("../Models/HoldingsModel");
+const { OrdersModel } = require("../Models/OrdersModel");
 
 module.exports.buyStock = async (req, res) => {
   try {

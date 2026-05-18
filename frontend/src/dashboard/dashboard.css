@@ -85,17 +85,21 @@ code {
 }
 
 .dashboard .row {
-  width: 100%;
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 5%;
 }
+
 
 .dashboard .col {
   flex-basis: 48%;
   text-align: left;
 }
+/* .dashboard .col {
+  flex-basis: 33%;
+} */
 
 .dashboard .col span {
   display: flex;
@@ -202,10 +206,6 @@ code {
   text-align: left;
 }
 
-.dashboard .order-table tr th:nth-child(1),
-.dashboard .order-table tr th:nth-child(4) {
-  border-right: 1px solid #f1f1f1;
-}
 
 .dashboard .order-table tr td:nth-child(1),
 .dashboard .order-table tr td:nth-child(4) {
@@ -236,16 +236,7 @@ code {
   color: rgb(250, 118, 78);
 }
 
-.dashboard .row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5%;
-}
 
-.dashboard .col {
-  flex-basis: 33%;
-}
 
 .dashboard .col h5 {
   font-size: 1.8rem;
@@ -264,6 +255,7 @@ code {
   font-weight: 300;
   margin-top: 2%;
 }
+
 
 .dashboard .row .col:last-child h5 {
   color: rgb(72, 194, 55);
@@ -402,19 +394,9 @@ code {
   background: rgb(110, 110, 253);
 }
 
-.dashboard .title {
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: rgb(71, 71, 71);
-  margin-bottom: 2%;
-}
 
-.dashboard .order-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
 
-.dashboard .order-table tr {
+/* .dashboard .order-table tr {
   border-top: 1px solid rgb(211, 211, 211);
   border-bottom: 1px solid rgb(211, 211, 211);
 }
@@ -450,7 +432,7 @@ code {
   font-weight: 400;
   font-size: 0.8rem;
   color: rgb(73, 73, 73);
-}
+} */
 
 .dashboard .align-left {
   text-align: left;
@@ -464,38 +446,6 @@ code {
   color: rgb(250, 118, 78);
 }
 
-.dashboard .row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5%;
-}
-
-.dashboard .col {
-  flex-basis: 33%;
-}
-
-.dashboard .col h5 {
-  font-size: 1.8rem;
-  color: rgb(71, 71, 71);
-  font-weight: 300;
-}
-
-.dashboard .col h5 span {
-  font-weight: 300;
-  font-size: 0.9rem;
-}
-
-.dashboard .col p {
-  font-size: 0.8rem;
-  color: rgb(153, 153, 153);
-  font-weight: 300;
-  margin-top: 2%;
-}
-
-.dashboard .row .col:last-child h5 {
-  color: rgb(72, 194, 55);
-}
 
 /* sudo selector */
 .dashboard .item:hover {

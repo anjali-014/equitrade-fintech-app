@@ -102,12 +102,16 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="/logo.png" alt="logo" style={{ width: "40px" }} />
+      <img
+  src="/Media/Images/logo.svg"
+  alt="logo"
+  style={{ width: "95px" }}
+/>
 
       <div className="menus">
         <ul>
           <li>
-            <Link to="" style={{ textDecoration: "none" }}>
+            <Link to="/home" style={{ textDecoration: "none" }}>
               <p className={location.pathname === "/home" ? activeMenuClass : menuClass}>
                 Dashboard
               </p>
@@ -115,7 +119,7 @@ const Menu = () => {
           </li>
 
           <li>
-            <Link to="orders" style={{ textDecoration: "none" }}>
+            <Link to="/home/orders" style={{ textDecoration: "none" }}>
               <p className={location.pathname.includes("orders") ? activeMenuClass : menuClass}>
                 Orders
               </p>
@@ -123,7 +127,7 @@ const Menu = () => {
           </li>
 
           <li>
-            <Link to="holdings" style={{ textDecoration: "none" }}>
+            <Link to="/home/holdings" style={{ textDecoration: "none" }}>
               <p className={location.pathname.includes("holdings") ? activeMenuClass : menuClass}>
                 Holdings
               </p>
@@ -131,7 +135,7 @@ const Menu = () => {
           </li>
 
           <li>
-            <Link to="positions" style={{ textDecoration: "none" }}>
+            <Link to="/home/positions" style={{ textDecoration: "none" }}>
               <p className={location.pathname.includes("positions") ? activeMenuClass : menuClass}>
                 Positions
               </p>
@@ -139,7 +143,7 @@ const Menu = () => {
           </li>
 
           <li>
-            <Link to="funds" style={{ textDecoration: "none" }}>
+            <Link to="/home/funds" style={{ textDecoration: "none" }}>
               <p className={location.pathname.includes("funds") ? activeMenuClass : menuClass}>
                 Funds
               </p>
@@ -147,7 +151,7 @@ const Menu = () => {
           </li>
 
           <li>
-            <Link to="apps" style={{ textDecoration: "none" }}>
+            <Link to="/home/apps" style={{ textDecoration: "none" }}>
               <p className={location.pathname.includes("apps") ? activeMenuClass : menuClass}>
                 Apps
               </p>

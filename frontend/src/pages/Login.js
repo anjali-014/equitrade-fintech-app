@@ -143,6 +143,11 @@ const Login = () => {
       console.log("RESPONSE:", res.data);
 
       if (res.data.success) {
+        // Store token so axios interceptor can send it as Authorization header
+        if (res.data.token) {
+          localStorage.setItem("token", res.data.token);
+        }
+
         toast.success(res.data.message);
 
         setTimeout(() => {

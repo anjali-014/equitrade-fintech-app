@@ -1,4 +1,5 @@
 import React from 'react';
+import nithinImg from "../../../public/Media/Images/nithinKamath.jpg";
 
 function Team() {
     return (
@@ -11,7 +12,7 @@ function Team() {
       </div>
       <div className="row p-5">
         <div className='col-6 p-3 text-center'>
-            <img className='mx-5' src='Media/Images/nithinkamath.jpg' alt='Team' style={{width:"70%", borderRadius:"50%"}}/>
+            <img className='mx-5' src={nithinImg} alt="Nithin Kamath" style={{width:"70%", borderRadius:"50%"}}/>
             <div className='text-center mt-3'>
                 <h5>Nithin Kamath</h5>
                 <p>Founder, CEO</p>

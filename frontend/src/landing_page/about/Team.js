@@ -23,7 +23,7 @@ function Team() {
            <p style={{lineHeight: "1.6", fontSize: "1.1rem"}}>He is a member of the SEBI Secondary Market Advisory Committee (SMAC) and the Market Data Advisory Committee (MDAC).</p>
 
            <p style={{lineHeight: "1.6", fontSize: "1.1rem"}}>Playing basketball is his zen.</p>
-           <p style={{lineHeight: "1.6", fontSize: "1.1rem"}}>Connect on <a style={{textDecoration: "none"}}href="#">Homepage</a> / <a style={{textDecoration: "none"}}href="#">TradingQnA</a> / <a style={{textDecoration: "none"}}href="#">Twitter</a>.</p>
+           <p style={{lineHeight: "1.6", fontSize: "1.1rem"}}>Connect on <a style={{textDecoration: "none"}} href="/">Homepage</a> / <a style={{textDecoration: "none"}} href="/">TradingQnA</a> / <a style={{textDecoration: "none"}} href="/">Twitter</a>.</p>
         </div>
 
       </div>

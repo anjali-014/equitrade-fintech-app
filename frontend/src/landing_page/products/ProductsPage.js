@@ -4,8 +4,7 @@ import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
+
 
 function ProductsPage() {
   return (
@@ -48,7 +47,7 @@ function ProductsPage() {
         googlePLay=""
         appStore
       />
-      <p className="text-center" style={{fontSize:"1.2rem"}}>Want to know more about our technology stack? Check out the <a href="" style={{textDecoration:"none"}}>Zerodha.tech blog</a>.</p>
+      <p className="text-center" style={{fontSize:"1.2rem"}}>Want to know more about our technology stack? Check out the <a href="/" style={{textDecoration:"none"}}>Zerodha.tech blog</a>.</p>
       <Universe />
     </>
   );

@@ -21,7 +21,7 @@
 
 
 
-const User = require("../Models/UserModel"); // ⚠️ check path: model vs Models
+const { UserModel } = require("../Models/UserModel");
 const jwt = require("jsonwebtoken");
 
 module.exports.userVerification = async (req, res) => {
@@ -36,7 +36,7 @@ module.exports.userVerification = async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // 🔥 fetch user
-    const user = await User.findById(decoded.id);
+    const user = await UserModel.findById(decoded.id);
 
     if (!user) {
       return res.status(401).json({ status: false, message: "User not found" });

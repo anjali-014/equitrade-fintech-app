@@ -1,13 +1,18 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
+import API from "../../api/axios";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
 const BuyActionWindow = ({ uid }) => {
+
+    const navigate = useNavigate();
+
+
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
@@ -62,7 +67,7 @@ const BuyActionWindow = ({ uid }) => {
   };
 
   return (
-    <div className="container" id="buy-window" draggable="true">
+    <div className="buy-window" id="buy-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
 

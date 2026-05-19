@@ -1,6 +1,6 @@
 
 // backend/controller/authController.js
-const User = require("../Models/UserModel");
+const { UserModel } = require("../Models/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -17,12 +17,12 @@ module.exports.Signup = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    const user = await User.create({
+    const user = await UserModel.create({
       email,
       username,
       password,
@@ -42,6 +42,8 @@ module.exports.Signup = async (req, res) => {
   }
 };
 
+
+
 /* ================= LOGIN ================= */
 module.exports.Login = async (req, res) => {
   try {
@@ -53,7 +55,7 @@ module.exports.Login = async (req, res) => {
 
     console.log("Login attempt for:", email);
 
-    const user = await User.findOne({ email });
+    const user = await UserModel.findOne({ email });
 
     if (!user) {
       return res.status(401).json({ message: "Invalid email or password" });

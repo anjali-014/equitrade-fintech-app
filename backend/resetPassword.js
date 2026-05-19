@@ -1,7 +1,7 @@
 // resetPassword.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const User = require("./model/UserModel");
+const User = require("./Models/UserModel");
 require("dotenv").config();
 
 const uri = process.env.MONGO_URI;

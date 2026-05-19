@@ -10,9 +10,9 @@ const uri = process.env.MONGO_URI;
 
 const requireAuth = require("./Middlewares/requireAuth");
 
-const { HoldingsModel } = require("./model/HoldingsModel");
-const { PositionsModel } = require("./model/PositionsModel");
-const { OrdersModel } = require("./model/OrdersModel");
+const { HoldingsModel } = require("./Models/HoldingsModel");
+const { PositionsModel } = require("./Models/PositionsModel");
+const { OrdersModel } = require("./Models/OrdersModel");
 
 const authRoute = require("./Routes/AuthRoute");
 

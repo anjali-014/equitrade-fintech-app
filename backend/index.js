@@ -37,14 +37,29 @@ app.use("/api/auth", authRoute);
 
 
 app.get("/allHoldings", requireAuth, async (req, res) => {
-  // let allHoldings = await HoldingsModel.find({});
-  let allHoldings = await HoldingsModel.find({ userId: req.user.id });
-  res.json(allHoldings);
+  try {
+    const userId = req.user.id;
+    console.log(`[allHoldings] Authenticated userId: ${userId}`);
+    const allHoldings = await HoldingsModel.find({ userId });
+    console.log(`[allHoldings] Found ${allHoldings.length} holdings`);
+    res.json(allHoldings);
+  } catch (err) {
+    console.error("[allHoldings] Error:", err.message);
+    res.status(500).json({ message: "Failed to fetch holdings" });
+  }
 });
 
 app.get("/allPositions", requireAuth, async (req, res) => {
-  let allPositions = await PositionsModel.find({ userId: req.user.id });
-  res.json(allPositions);
+  try {
+    const userId = req.user.id;
+    console.log(`[allPositions] Authenticated userId: ${userId}`);
+    const allPositions = await PositionsModel.find({ userId });
+    console.log(`[allPositions] Found ${allPositions.length} positions`);
+    res.json(allPositions);
+  } catch (err) {
+    console.error("[allPositions] Error:", err.message);
+    res.status(500).json({ message: "Failed to fetch positions" });
+  }
 });
 
 // ✅ PROPER DB CONNECTION + SERVER START

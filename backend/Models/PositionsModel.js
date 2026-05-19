@@ -7,6 +7,8 @@ const PositionsSchema = new mongoose.Schema({
   price: Number,
   net: String,
   day: String,
+  product: String,          // ← was missing; seed data includes "MIS"
+  isLoss: Boolean,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

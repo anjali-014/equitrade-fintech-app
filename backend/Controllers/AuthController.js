@@ -82,10 +82,11 @@ module.exports.Login = async (req, res) => {
     );
 
     res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "lax",
-      maxAge: 3600000,
-    });
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  maxAge: 3600000,
+});
 
     res.status(200).json({
       message: "Login successful",

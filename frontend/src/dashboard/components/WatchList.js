@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
-import axios from "axios";
+
+
 
 import GeneralContext from "./GeneralContext";
 
@@ -94,7 +95,7 @@ const WatchListItem = ({ stock }) => {
           {stock.isDown ? (
             <KeyboardArrowDown className="down" />
           ) : (
-            <KeyboardArrowUp className="down" />
+            <KeyboardArrowUp className="up" />
           )}
           <span className="price">{stock.price}</span>
         </div>

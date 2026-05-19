@@ -87,14 +87,21 @@
 
 
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   const handleProfileClick = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    navigate("/login");
   };
 
   const menuClass = "menu";
@@ -169,7 +176,7 @@ const Menu = () => {
         {isProfileDropdownOpen && (
           <div className="profile-dropdown">
             <p>Profile</p>
-            <p>Logout</p>
+            <p onClick={handleLogout} style={{ cursor: "pointer" }}>Logout</p>
           </div>
         )}
       </div>

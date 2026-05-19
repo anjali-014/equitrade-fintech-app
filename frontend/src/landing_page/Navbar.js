@@ -49,7 +49,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item p-1 mx-2">
-                <a className="nav-link text-muted active" href="#">
+                <a className="nav-link text-muted active" href="/">
                   <i className="fa fa-bars" style={{fontSize: "1.2rem"}}aria-hidden="true"></i>
                 </a>
               </li>

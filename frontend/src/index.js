@@ -6,12 +6,12 @@ import "./index.css";
 
 import Layout from "./Layout";
 
-import Dashboard from "./dashboard/components/Dashboard";
+import Home from "./dashboard/components/Home";
 
 import HomePage from "./landing_page/home/HomePage";
 import Signup from "./landing_page/signup/Signup";
 import Login from "./pages/Login";
-// import Home from "./pages/Home";
+
 import NotFound from "./landing_page/NotFound";
 import AboutPage from "./landing_page/about/AboutPage";
 import ProductPage from "./landing_page/products/ProductsPage";
@@ -39,7 +39,7 @@ root.render(
   </Route>
 
   {/* 🚀 Dashboard WITHOUT layout */}
-  <Route path="/home/*" element={<Dashboard />} />
+  <Route path="/home/*" element={<Home />} />
   
 
 </Routes>

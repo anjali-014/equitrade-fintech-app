@@ -6,6 +6,16 @@
 
 A modern stock trading platform built using the MERN stack that allows users to securely manage portfolios, place buy orders, track holdings, monitor positions, and visualize investments through an interactive dashboard.
 
+<p align="center">
+  <a href="https://equitrade-fintech-app-6cqz.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit-blue?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/user-attachments/assets/f39025b0-ed19-452d-8341-7d6e5edd4de4"> 
+    <img src="https://img.shields.io/badge/🎥_Demo_Video-Watch-red?style=for-the-badge" />
+  </a>
+</p>
+
+
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb)
